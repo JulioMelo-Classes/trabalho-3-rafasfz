@@ -16,14 +16,14 @@ Este repositório tem algumas classes iniciais que podem te ajudar a fazer o pro
 No linux você pode compilar usando o g++. Apenas faça clone do projeto, e faça:
 
 ```bash
-g++ src/*.cpp -o main -I../include
+g++ src/*.cpp -o main -I./include
 ./main
 ```
 
 No windows você pode compilar usando o g++ ou o cl de forma análoga:
 
 ```bash
-g++ src/*.cpp -o main -I../include
+g++ src/*.cpp -o main -I./include
 .\main.exe
 ```
 ou usando o CL
