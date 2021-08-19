@@ -2,6 +2,7 @@
 #define SnakeGame_h
 #include <iostream>
 #include <vector>
+#include <Level.h>
 
 
 class SnakeGame{
@@ -22,6 +23,7 @@ class SnakeGame{
         std::string choice; //<! usado na função process_actions para guardar a escolha do usuário
         GameStates state; //<! guarda o estado do jogo
         std::string file_name; //<! arquivo com a entrada do jogo
+        std::vector<Level> levels;
 
     public:
         /**
