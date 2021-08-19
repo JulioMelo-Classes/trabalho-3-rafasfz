@@ -7,4 +7,5 @@ include_directories( include )
 add_executable( snaze
   src/Snaze.cpp
   src/SnakeGame.cpp
+  src/Level.cpp
 )
