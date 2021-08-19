@@ -4,7 +4,8 @@
 using namespace std;
 
 int main(int argc, char *argv[]){
-    SnakeGame game;
+    std::string file_name = argv[1];
+    SnakeGame game(file_name);
     
     game.loop(); //bloqueia aqui e só saí quando o jogo termina
 
