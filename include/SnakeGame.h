@@ -24,12 +24,14 @@ class SnakeGame{
         GameStates state; //<! guarda o estado do jogo
         std::string file_name; //<! arquivo com a entrada do jogo
         std::vector<Level> levels;
+        int actual_level;
+        std::string game_mode;
 
     public:
         /**
         * @brief construtor padrão, fique à vontade para adicionar parâmetros se desejar
         **/
-        SnakeGame(std::string file_name);
+        SnakeGame(std::string file_name, std::string game_mode);
 
         /**
         * @brief chamado no main, este loop executa o jogo indefinidamente até que o usuário escolha terminar!
@@ -37,6 +39,7 @@ class SnakeGame{
         void loop();
 
     private:
+        std::vector<int> get_level_data(std::string line);
         /**
         * @brief realiza a inicialização geral do jogo, fique à vontade para adicionar parâmetros se achar que deve
         **/

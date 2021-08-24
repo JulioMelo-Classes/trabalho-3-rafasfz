@@ -11,28 +11,53 @@ e [Cmake](https://cmake.org/). Esta versão usa compilação básica usando a li
 
 Este repositório tem algumas classes iniciais que podem te ajudar a fazer o projeto, porém, fique à vontade para explorar as possibilidades.
 
-## Compilando e executando o exemplo
-
-No linux você pode compilar usando o g++. Apenas faça clone do projeto, e faça:
+## Compilando e executando o projeto
 
 ```bash
-g++ src/*.cpp -o main -I./include
-./main
+  # Cria um clone do projeto
+  git clone https://github.com/JulioMelo-Classes/trabalho-3-rafasfz.git
+
+  # Entra na pasta de build do projeto
+  cd trabalho-3-rafasfz/build
+
+  # Compila o projeto
+  cmake ..
+  make
 ```
 
-No windows você pode compilar usando o g++ ou o cl de forma análoga:
+## Executando o projeto
 
+Primeiramente crie um arquivo com as entradas do programa, siga o exemplo abaixo
+```
+15 10 2
+##########
+#      ###
+# #### ###
+# #    ###
+# # ######
+# # ######
+# # ######
+# # ######
+# # ######
+# #*######
+# # ##   #
+# #    # #
+# ###### #
+#        #
+##########
+```
+
+Nesse caso o mapa sera com 15 linhas 10 colunas e 2 comidas
+
+Agora no terminal dentro da pasta build execute o projeto usando o seguinte comando
 ```bash
-g++ src/*.cpp -o main -I./include
-.\main.exe
-```
-ou usando o CL
+./snaze {"nome do arquivo"} {"modo de jogo"}
 
-```bash
-cl src/*.cpp -I../include
-.\Snaze.exe
-```
+#executando o arquivo no diretorio ../data/maze1.txt e no modo snake
+./snaze ../data/maze1.txt snake
 
-__Observação sobre o windows__: Ao realizar testes meu sistema detectou o programa como um virus, para conseguir executar eu tive que usar a versão compilada com o g++ ou configurar o windows defender para ignorar o executável que está na pasta do projeto (o problema só ocorre com a versão compilada pelo CL).
+#executando o arquivo no diretorio ../data/maze1.txt e no modo pacman
+./snaze ../data/maze1.txt pacman
+```
 # trabalho-3-rafasfz
 # trabalho-3-rafasfz
