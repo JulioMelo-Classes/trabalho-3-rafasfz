@@ -29,7 +29,7 @@ Este repositório tem algumas classes iniciais que podem te ajudar a fazer o pro
 
 Primeiramente crie um arquivo com as entradas do programa, siga o exemplo abaixo
 ```
-15 10 2
+15 10 7
 ##########
 #      ###
 # #### ###
@@ -45,9 +45,25 @@ Primeiramente crie um arquivo com as entradas do programa, siga o exemplo abaixo
 # ###### #
 #        #
 ##########
+15 10 1
+##########
+#        #
+#        #
+#        #
+#        #
+#        #
+#        #
+#        #
+#        #
+#        #
+#        #
+#        #
+#        #
+#*       #
+##########
 ```
 
-Nesse caso o mapa sera com 15 linhas 10 colunas e 2 comidas
+No arquivo acima temos 2 níveis sendo o primeiro mapa com 15 linhas, 10 colunas, 7 comidas, e o segundo com 15 linhas, 10 colunas e 1 comida.
 
 Agora no terminal dentro da pasta build execute o projeto usando o seguinte comando
 ```bash
