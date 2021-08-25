@@ -78,7 +78,7 @@ void Snake::walk(char new_direction_param) {
   }
 }
 
-void Snake::render_map(std::vector<std::string> map, int foods_left, int lifes) {
+void Snake::render_map(std::vector<std::string> map, int foods_left, int lifes, int score) {
   for(int i = 0; i < this->body.size(); i++) {
     if(i == 0) {
       map[this->body[i].second.first][this->body[i].second.second] = this->snake_head;
@@ -86,8 +86,9 @@ void Snake::render_map(std::vector<std::string> map, int foods_left, int lifes) 
       map[this->body[i].second.first][this->body[i].second.second] = this->snake_body;
     }
   }
-  std::cout << "Você tem " << lifes << " vidas" << std::endl;
-  std::cout << "Ainda restam " << foods_left << " comidas restantes" << std::endl;
+  std::cout << "Vidas: " << lifes<< std::endl;
+  std::cout << "Comidas restantes: " << foods_left << std::endl;
+  std::cout << "Score: " << score << std::endl;
   for(auto line : map) {
     std::cout << line << std::endl;
   }

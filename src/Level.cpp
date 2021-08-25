@@ -50,15 +50,18 @@ bool Level::get_finished() {
 }
 
 void Level::render() {
-  this->snake.render_map(this->map, this->foods, this->lifes);
+  this->snake.render_map(this->map, this->foods, this->lifes, this->score);
 }
 
 void Level::snake_walk(char direction) {
   this->snake.walk(direction);
   if(this->snake.verify_eat(this->map, this->game_mode)) {
+    this->score = this->steps > 20 ? this->score + 100 : this->score + (((20 - this->steps) * 10) + 100);
+    this->steps = 0;
     this->foods--;
     this->generate_food();
   }
+  this->steps++;
 }
 
 void Level::generate_food() {

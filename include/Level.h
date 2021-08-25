@@ -14,6 +14,8 @@ class Level {
     int lifes;
     int initalRow;
     int initalColumn;
+    int score = 0;
+    int steps = 0;
     std::string game_mode;
     std::vector<std::string> map;
     Snake snake;

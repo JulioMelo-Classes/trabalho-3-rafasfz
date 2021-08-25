@@ -17,7 +17,7 @@ class Snake {
     int get_body_size();
     void eat();
     void walk(char new_direction);
-    void render_map(std::vector<std::string> map, int foods_left, int lifes);
+    void render_map(std::vector<std::string> map, int foods_left, int lifes, int score);
     bool snake_point(int row, int column);
     bool verify_eat(std::vector<std::string> map, std::string game_mode);
     bool verify_collapse(std::vector<std::string> map);
