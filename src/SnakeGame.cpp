@@ -138,7 +138,12 @@ void SnakeGame::update(){
                     clearScreen();
                     cout << "Parabéns!! Você passou do nivel " << this->actual_level << std::endl;
                     cout << "Agora você jogara no nível " << this->actual_level + 1 << std::endl;
-                    wait(5000);
+                    std::cout << "Você deseja continuar? (s/n)" << std::endl;
+                    cin>>std::ws>>choice;
+                    if(choice == "n"){
+                        state = GAME_OVER;
+                        game_over();
+                    }
                     clearScreen();
                 }
             }
@@ -185,7 +190,7 @@ void SnakeGame::loop(){
         process_actions();
         update();
         render();
-        wait(500);// espera 1 segundo entre cada frame
+        wait(50);// espera 1 segundo entre cada frame
     }
 }
 
