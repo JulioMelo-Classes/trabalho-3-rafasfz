@@ -11,6 +11,7 @@ class Player {
   
   private:
     std::vector<char> moves;
+    std::vector<std::pair<int, int>> tested_coordenates;
   
 };
 

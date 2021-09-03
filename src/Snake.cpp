@@ -121,6 +121,12 @@ bool Snake::verify_collapse(std::vector<std::string> map) {
   int row = this->body[0].second.first;
   int column = this->body[0].second.second;
 
+  for(int i = 0; i < this->body.size(); i++) {
+    if(!(i == 0)) {
+      map[this->body[i].second.first][this->body[i].second.second] = this->snake_body;
+    }
+  }
+
   if(map[row][column] == '#' || map[row][column] == 'O') {
     std::cout << map[row][column] << std::endl;
     std::cout << "Você colidiu nas seguintes coordenadas: " << std::endl;
@@ -136,6 +142,9 @@ char Snake::IAMode(std::vector<std::string> map) {
   if(this->p.find_solution(map, this->body)) {
     return this->p.next_move();
   }
+
+  if(this->body[0].first == 'S')
+    return 'S';
 
   return 'N';
 }
