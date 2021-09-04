@@ -23,9 +23,9 @@ class SnakeGame{
         std::string choice; //<! usado na função process_actions para guardar a escolha do usuário
         GameStates state; //<! guarda o estado do jogo
         std::string file_name; //<! arquivo com a entrada do jogo
-        std::vector<Level> levels;
-        int actual_level;
-        std::string game_mode;
+        std::vector<Level> levels; //<! vetor com todos levels que tem no jogo
+        int actual_level; //<! int que indica em qual posição esta o level atual do jogo
+        std::string game_mode; //<! string para indicar se o tipo de jogo é snake ou pacman
 
     public:
         /**
