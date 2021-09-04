@@ -5,6 +5,10 @@
 #include <chrono> //por causa do sleep
 #include <thread> //por causa do sleep
 
+void wait_(int ms){
+    std::this_thread::sleep_for(std::chrono::milliseconds(ms));
+}
+
 std::vector<std::pair<char, std::pair<int, int>>> walk(std::vector<std::pair<char, std::pair<int, int>>> body, char new_direction_param) {
   char old_direction;
 
@@ -43,6 +47,19 @@ std::vector<std::pair<char, std::pair<int, int>>> walk(std::vector<std::pair<cha
   }
 
   return body;
+}
+
+bool crush_in_yourself(std::vector<std::pair<char, std::pair<int, int>>> body) {
+  int snake_row = body[0].second.first;
+  int snake_column = body[0].second.second;
+
+  for(int i = 1; i < body.size(); i++) {
+    if(body[0].second.first == body[i].second.first && body[0].second.second == body[i].second.second) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 bool find_end(std::vector<std::pair<char, std::pair<int, int>>> snake_body, std::vector<std::string>map, std::vector<char> path) {
@@ -88,24 +105,16 @@ bool is_safe(std::vector<std::pair<char, std::pair<int, int>>> snake_body, std::
     if(old_direction == 'O' && d == 'L') return false;
     if(old_direction == 'L' && d == 'O') return false;
 
-    if(d == 'N') {
-      snake_row--;
-    }
-    if(d == 'S') {
-      snake_row++;
-    }
-    if(d == 'O') {
-      snake_column--;
-    }
-    if(d == 'L') {
-      snake_column++;
-    }
+    snake_body = walk(snake_body, d);
+
+    snake_row = snake_body[0].second.first;
+    snake_column = snake_body[0].second.second;
 
     if(snake_row >= map.size() || snake_row < 0 || snake_column >= map[0].size() || snake_column < 0) {
       return false;
     }
 
-    if(map[snake_row][snake_column] == '#'){
+    if(map[snake_row][snake_column] == '#' || crush_in_yourself(snake_body)){
       return false;
     }
 
