@@ -75,7 +75,7 @@ class Level {
 
     /*! reseta o mapa diminuindo em 1 a quantidade de vidas da cobra
 		*/
-    void reset();
+    void reset(bool loose_life = true);
 
     /*! pega a quantidade de vidas restantes que a cobra tem
     @return a quantidade de vidas restantes da cobra

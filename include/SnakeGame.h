@@ -26,12 +26,13 @@ class SnakeGame{
         std::vector<Level> levels; //<! vetor com todos levels que tem no jogo
         int actual_level; //<! int que indica em qual posição esta o level atual do jogo
         std::string game_mode; //<! string para indicar se o tipo de jogo é snake ou pacman
+        bool loopLevels; //<! booleano que define se o jogo sera rodado em loop ou não
 
     public:
         /**
         * @brief construtor padrão, fique à vontade para adicionar parâmetros se desejar
         **/
-        SnakeGame(std::string file_name, std::string game_mode);
+        SnakeGame(std::string file_name, std::string game_mode, bool loopLevels);
 
         /**
         * @brief chamado no main, este loop executa o jogo indefinidamente até que o usuário escolha terminar!

@@ -86,8 +86,11 @@ bool Level::verify_collapse() {
   return this->snake.verify_collapse(this->map);
 }
 
-void Level::reset() {
-  this->lifes--;
+void Level::reset(bool loose_life) {
+  if(loose_life)
+    this->lifes--;
+  else
+    this->lifes = 5;
   this->foods = this->foodsMax;
   Snake snake('N', initalRow, initalColumn);
   this->snake = snake;

@@ -31,9 +31,10 @@ void wait(int ms){
     this_thread::sleep_for(chrono::milliseconds(ms));
 }
 
-SnakeGame::SnakeGame(std::string file_name, std::string game_mode){
+SnakeGame::SnakeGame(std::string file_name, std::string game_mode, bool loopLevels){
     this->file_name = file_name;
     this->game_mode = game_mode;
+    this->loopLevels = loopLevels;
     choice = "";
     frameCount = 0;
     initialize_game();
@@ -129,6 +130,12 @@ void SnakeGame::update(){
             //     state = WAITING_USER;
             if(this->levels[this->actual_level].verify_win()) {
                 this->actual_level++;
+                if(this->loopLevels && this->actual_level == this->levels.size()) {
+                    this->actual_level = this->actual_level % this->levels.size();
+                    for(int i = 0; i < this->levels.size(); i++) {
+                        this->levels[i].reset(false);
+                    }
+                }
                 if(this->actual_level == this->levels.size()) {
                     cout << "PARABÉNS!!!!!" << std::endl;
                     cout << "VOCÊ VENCEU!!!" << std::endl;
