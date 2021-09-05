@@ -4,6 +4,10 @@
 using namespace std;
 
 int main(int argc, char *argv[]){
+    if(argc < 3) {
+        cout << "Chamada incorreta do programa" << endl;
+        return 1;
+    }
     std::string file_name = argv[1];
     std::string game_mode = argv[2];
     bool loop = false;

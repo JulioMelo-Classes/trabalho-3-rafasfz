@@ -68,7 +68,7 @@ No arquivo acima temos 2 níveis sendo o primeiro mapa com 15 linhas, 10 colunas
 Agora no terminal dentro da pasta build execute o projeto usando o seguinte comando
 ```bash
 ./snaze {"nome do arquivo"} {"modo de jogo"} loop # caso queira jogar repetindo os levels
-./snaze {"nome do arquivo"} {"modo de jogo"} # caso queira jogar 1 level por vez
+./snaze {"nome do arquivo"} {"modo de jogo"} # caso queira jogar cada level apenas uma vez
 
 #executando o arquivo no diretorio ../data/maze1.txt e no modo snake e com loop
 ./snaze ../data/maze1.txt snake loop
