@@ -13,6 +13,7 @@ Level::Level(int rows, int columns, int foods, std::vector<std::string> map, std
   this->map = map;
   this->lifes = 5;
   this->game_mode = game_mode;
+  bool random_snake_initial_position = true;
 
   for(int i = 0; i < this->map.size(); i++) {
     for(int j = 0; j < this->map[i].size(); j++) {
@@ -22,6 +23,43 @@ Level::Level(int rows, int columns, int foods, std::vector<std::string> map, std
         this->snake = snake;
         this->initalRow = i;
         this->initalColumn = j;
+        random_snake_initial_position = false;
+      }
+    }
+  }
+
+  if(random_snake_initial_position) {
+    std::vector<std::pair<int, int>> free_positions;
+    for(int i = 0; i < this->map.size(); i++) {
+      for(int j = 0; j < this->map[i].size(); j++) {
+        if(this->map[i][j] == ' ') {
+          free_positions.push_back(std::make_pair(i, j));
+        }
+      }
+    }
+
+    bool snake_in_game = false;
+    std::pair<int, int> initial_snake_position;
+
+    while(!snake_in_game) {
+      srand((unsigned) time(0));
+      initial_snake_position = free_positions[rand() % free_positions.size()];
+
+      int sorted_row = initial_snake_position.first;
+      int sorted_column = initial_snake_position.second;
+
+      if(this->map[sorted_row - 1][sorted_column] == ' ' || this->map[sorted_row][sorted_column-1] == ' ' || this->map[sorted_row][sorted_column + 1] == ' ') {
+        snake_in_game = true;
+        Snake snake('N', sorted_row, sorted_column);
+        this->snake = snake;
+        this->initalRow = sorted_row;
+        this->initalColumn = sorted_column;
+      } else if(this->map[sorted_row + 1][sorted_column] == ' ') {
+        snake_in_game = true;
+        Snake snake('S', sorted_row, sorted_column);
+        this->snake = snake;
+        this->initalRow = sorted_row;
+        this->initalColumn = sorted_column;
       }
     }
   }

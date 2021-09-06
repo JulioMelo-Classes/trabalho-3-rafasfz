@@ -62,7 +62,7 @@ bool crush_in_yourself(std::vector<std::pair<char, std::pair<int, int>>> body) {
   return false;
 }
 
-bool find_end(std::vector<std::pair<char, std::pair<int, int>>> snake_body, std::vector<std::string>map, std::vector<char> path) {
+bool find_food(std::vector<std::pair<char, std::pair<int, int>>> snake_body, std::vector<std::string>map, std::vector<char> path) {
   char snake_direction = snake_body[0].first;
   int snake_row = snake_body[0].second.first;
   int snake_column = snake_body[0].second.second;
@@ -151,7 +151,7 @@ bool Player::find_solution(std::vector<std::string> map, std::vector<std::pair<c
   possibles_paths.push({});
   std::vector<char> path;
 
-  while(!find_end(snake_body, map, path)) {
+  while(!find_food(snake_body, map, path)) {
     // for (auto ch : path)
     //   std::cout << ch;
     // std::cout << std::endl;
@@ -182,7 +182,7 @@ bool Player::find_solution(std::vector<std::string> map, std::vector<std::pair<c
     }
   }
   // std::cout << "Travou!!" << std::endl;
-  if(find_end(snake_body, map, path)) {
+  if(find_food(snake_body, map, path)) {
     this->moves = path;
     return true;
   }
