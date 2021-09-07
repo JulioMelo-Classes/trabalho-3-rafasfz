@@ -18,9 +18,12 @@ int main(int argc, char *argv[]){
         }
     }
 
-    SnakeGame game(file_name, game_mode, loop);
-    
-    game.loop(); //bloqueia aqui e só saí quando o jogo termina
+    try {
+        SnakeGame game(file_name, game_mode, loop);
+        game.loop(); //bloqueia aqui e só saí quando o jogo termina
+    } catch (std::exception) {
+        cout << "Um dos levels foram invalidados por possuir linhas e/ou colunas maiores que 100" << endl;
+    }
 
     return 0;
 }

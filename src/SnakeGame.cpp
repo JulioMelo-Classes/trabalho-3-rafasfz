@@ -53,9 +53,15 @@ void SnakeGame::initialize_game(){
             if(lineCount == 0) {
                 data = get_level_data(line);
                 rows = data[0];
+                if(data[0] > 100 || data[1] > 100) {
+                    throw std::exception();
+                }
             } else if(lineCount <= rows) {
                 map.push_back(line);
             } else {
+                if(data[0] > 100 || data[1] > 100) {
+                    throw std::exception();
+                }
                 Level level(data[0], data[1], data[2], map, this->game_mode);
                 this->levels.push_back(level);
                 map.clear();

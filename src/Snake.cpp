@@ -130,7 +130,7 @@ bool Snake::verify_collapse(std::vector<std::string> map) {
   if(map[row][column] == '#' || map[row][column] == 'O') {
     std::cout << map[row][column] << std::endl;
     std::cout << "Você colidiu nas seguintes coordenadas: " << std::endl;
-    std::cout << "linha " << row << " coluna: " << column << std::endl;
+    std::cout << "linha: " << row << ", coluna: " << column << std::endl;
     std::this_thread::sleep_for(std::chrono::milliseconds(10000));
     return true;
   }
