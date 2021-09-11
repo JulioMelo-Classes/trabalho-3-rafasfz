@@ -27,7 +27,8 @@ Este repositório tem algumas classes iniciais que podem te ajudar a fazer o pro
 
 ## Executando o projeto
 
-Primeiramente crie um arquivo com as entradas do programa, siga o exemplo abaixo
+Primeiramente crie um arquivo com as entradas do programa, siga o exemplo abaixo.
+**OBS: para usar a funcionalidade do random start basta apenas não colocar o "*" no mapa**
 ```
 15 10 7
 ##########

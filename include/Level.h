@@ -19,7 +19,6 @@ class Level {
     std::string game_mode;  //<! modo de jogo "snake" ou "pacman"
     std::vector<std::string> map; //<! vetor de string contendo o mapa
     Snake snake; //<! a cobra que esta no jogo
-    Player p;
 
   public:
     /*! Construtor da classe

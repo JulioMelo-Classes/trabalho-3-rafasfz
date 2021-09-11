@@ -20,7 +20,6 @@ class Player {
   
   private:
     std::vector<char> moves; // vetor de direções que a cobra tem que seguir
-    std::vector<std::pair<int, int>> tested_coordenates;
   
 };
 

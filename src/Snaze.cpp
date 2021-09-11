@@ -18,6 +18,11 @@ int main(int argc, char *argv[]){
         }
     }
 
+    if(game_mode != "snake" && game_mode != "pacman") {
+        cout << "O tipo de jogo deve ser snake ou pacman" << endl;
+        return 1;
+    }
+
     try {
         SnakeGame game(file_name, game_mode, loop);
         game.loop(); //bloqueia aqui e só saí quando o jogo termina
